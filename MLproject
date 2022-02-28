@@ -1,0 +1,9 @@
+# Conventions to specify the dependencies and entry points to your code
+
+name: MLFlow-app
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    command: "python main.py"

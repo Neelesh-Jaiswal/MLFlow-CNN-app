@@ -1,0 +1,8 @@
+tqdm
+mlflow
+pandas
+numpy
+PyYAML
+
+## local packages
+# -e . # uncommentthis to install from setup.py
