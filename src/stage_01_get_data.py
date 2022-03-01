@@ -3,19 +3,18 @@ import os
 import shutil
 from tqdm import tqdm
 import logging
-from src.utils.common import read_yaml, create_directories
+from src.utils.common import read_yaml, create_directories, unzip_file
 import random
 import urllib.request as req
 
-
-STAGE = "GET_DATA" ## <<< change stage name
+STAGE = "GET_DATA"  ## <<< change stage name
 
 logging.basicConfig(
-    filename=os.path.join("logs", 'running_logs.log'), 
-    level=logging.INFO, 
+    filename=os.path.join("logs", 'running_logs.log'),
+    level=logging.INFO,
     format="[%(asctime)s: %(levelname)s: %(module)s]: %(message)s",
     filemode="a"
-    )
+)
 
 
 def main(config_path):
@@ -35,6 +34,11 @@ def main(config_path):
         logging.info(f'filename:{filename} created with info \n{headers}')
     else:
         logging.info(f'{data_file} already present')
+
+    # unzip operation
+    unzip_data_dir = config['data']['unzip_data_dir']
+    create_directories([unzip_data_dir])
+    unzip_file(source=data_file_path, dest=unzip_data_dir)
 
 
 if __name__ == '__main__':
