@@ -132,3 +132,4 @@ dmypy.json
 mlruns/
 .idea
 data/
+logs/running_logs.log
