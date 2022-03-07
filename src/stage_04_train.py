@@ -67,7 +67,7 @@ def main(config_path):
         config['data']['trained_model_file'])
 
     classifier.save(trained_model_file)
-    logging.info(f'trained model is saved t path: {trained_model_file}')
+    logging.info(f'trained model is saved at path: {trained_model_file}')
 
 
 if __name__ == '__main__':
