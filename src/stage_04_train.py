@@ -74,6 +74,7 @@ def main(config_path):
         mlflow.log_params(params)
         mlflow.keras.log_model(classifier, 'model')
 
+
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
     args.add_argument("--config", "-c", default="configs/config.yaml")
