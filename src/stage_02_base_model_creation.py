@@ -6,6 +6,7 @@ import logging
 from src.utils.common import read_yaml, create_directories
 import random
 import tensorflow as tf
+from src.utils.model import log_model_summary
 
 
 STAGE = "BASE MODEL CREATION STAGE" ## <<< change stage name
@@ -37,7 +38,8 @@ def main(config_path):
 
     classifier = tf.keras.Sequential(LAYERS)
 
-    # logging.info(classifier.summary())
+    # logging.info(classifier.summary()) # will not write to log
+    logging.info(f"base model summary:\n{log_model_summary(classifier)}")
 
     classifier.compile(
         optimizer=tf.keras.optimizers.Adam(params['lr']),
