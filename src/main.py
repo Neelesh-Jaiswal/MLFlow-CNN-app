@@ -23,9 +23,9 @@ logging.basicConfig(
 def main():
     with mlflow.start_run() as run:
         mlflow.run(".", "get_data", use_conda=False)
-        # mlflow.run(".", "get_data", parameters={}, use_conda=False) # to show that we can pass parameters (if the
-        # function need extra parameters)
+        # mlflow.run(".", "get_data", parameters={}, use_conda=False) # to show that we can pass parameters (if the function need extra parameters)
         mlflow.run(".", "base_model_creation", use_conda=False)
+        mlflow.run(".", "training", use_conda=False)
 
 
 if __name__ == '__main__':
